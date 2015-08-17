@@ -24,8 +24,8 @@
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:onClick="increment"
-            android:text="+"
+            android:onClick="decrement"
+            android:text="-"
             android:textSize="16sp" />
 
         <TextView
@@ -41,8 +41,8 @@
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:onClick="decrement"
-            android:text="-"
+            android:onClick="increment"
+            android:text="+"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -59,7 +59,7 @@
         android:id="@+id/price_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0,00 &#8372;"
+        android:text="Total: 0,00 &#8372;"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
