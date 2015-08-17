@@ -52,7 +52,7 @@
         android:id="@+id/price_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 &#8372;"
+        android:text="0,00 &#8372;"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
