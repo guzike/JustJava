@@ -26,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
     public void submitOrder(View view) {
         //display(numberOfCoffees);
         //displayPrice(numberOfCoffees * 5);
-        String priceMessage = "Total: "+NumberFormat.getCurrencyInstance().format(numberOfCoffees*5) + "\nThank you!";
-        displayMessage(priceMessage);
+        int price = calculatePrice();
+        String priceMessage = "Total: "+NumberFormat.getCurrencyInstance().format(price) + "\nThank you!";
+        displayMessage(createOrderSummary(price));
     }
 
     /**
@@ -69,5 +70,17 @@ public class MainActivity extends AppCompatActivity {
     private void displayMessage(String message) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(message);
+    }
+
+    private int calculatePrice(){
+        
+        return numberOfCoffees*5;
+    }
+
+    private String createOrderSummary(int price){
+        return "Name: Eugene Guzik\n" +
+                "Quantity: "+numberOfCoffees+
+                "\nTotal: "+NumberFormat.getCurrencyInstance().format(price)+
+                "\nThank you!";
     }
 }
