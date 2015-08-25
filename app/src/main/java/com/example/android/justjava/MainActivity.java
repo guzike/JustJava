@@ -3,6 +3,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -14,10 +15,21 @@ public class MainActivity extends AppCompatActivity {
 
     int numberOfCoffees = 0;
 
+    boolean hasWhippedCream = false;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+    }
+
+    public void CheckBoxAct(View view) {
+        CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox_cream);
+        hasWhippedCream = checkBox1.isChecked();
     }
 
     /**
@@ -25,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         int price = calculatePrice();
-        displayMessage(createOrderSummary(price));
+
+        displayMessage(createOrderSummary(price, hasWhippedCream));
     }
 
     /**
@@ -66,10 +79,11 @@ public class MainActivity extends AppCompatActivity {
         return numberOfCoffees*5;
     }
 
-    private String createOrderSummary(int price){
+    private String createOrderSummary(int price, boolean hasWhippedCream){
         return "Name: Eugene Guzik" +
-                "\nQuantity: "+numberOfCoffees+
-                "\nTotal: "+NumberFormat.getCurrencyInstance().format(price)+
+                "\nAdd whipped cream? " + hasWhippedCream +
+                "\nQuantity: " + numberOfCoffees +
+                "\nTotal: " + NumberFormat.getCurrencyInstance().format(price) +
                 "\nThank you!";
     }
 }
