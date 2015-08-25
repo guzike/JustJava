@@ -15,7 +15,7 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
 
-    int numberOfCoffees = 0;
+    int numberOfCoffees = 1;
 
     boolean hasWhippedCream = false;
     boolean hasChocolate = false;
@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        TextView numberOfCoffeesText = (TextView) findViewById(R.id.quantity_text_view);
+        numberOfCoffeesText.setText(numberOfCoffees+"");
 
     }
 
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public void increment(View view) {
         numberOfCoffees = numberOfCoffees + 1;
+        if(numberOfCoffees>100){
+            numberOfCoffees = 100;
+        }
         display(numberOfCoffees);
     }
 
@@ -67,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public void decrement(View view) {
         numberOfCoffees = numberOfCoffees - 1;
+        if(numberOfCoffees<1){
+            numberOfCoffees = 1;
+        }
         display(numberOfCoffees);
     }
 
