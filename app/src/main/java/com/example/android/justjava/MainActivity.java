@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     int numberOfCoffees = 0;
 
     boolean hasWhippedCream = false;
+    boolean hasChocolate = false;
 
 
 
@@ -34,9 +35,14 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         int price = calculatePrice();
+
         CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox_cream);
         hasWhippedCream = checkBox1.isChecked();
-        displayMessage(createOrderSummary(price, hasWhippedCream));
+
+        CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkbox_chocolate);
+        hasChocolate = checkBox2.isChecked();
+
+        displayMessage(createOrderSummary(price, hasWhippedCream, hasChocolate));
     }
 
     /**
@@ -77,9 +83,10 @@ public class MainActivity extends AppCompatActivity {
         return numberOfCoffees*5;
     }
 
-    private String createOrderSummary(int price, boolean hasWhippedCream){
+    private String createOrderSummary(int price, boolean hasWhippedCream, boolean hasChocolate){
         return "Name: Eugene Guzik" +
                 "\nAdd whipped cream? " + hasWhippedCream +
+                "\nAdd chocolate? " + hasChocolate +
                 "\nQuantity: " + numberOfCoffees +
                 "\nTotal: " + NumberFormat.getCurrencyInstance().format(price) +
                 "\nThank you!";
