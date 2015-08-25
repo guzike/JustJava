@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -62,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         numberOfCoffees = numberOfCoffees + 1;
         if(numberOfCoffees>100){
             numberOfCoffees = 100;
+
+            Toast toast = Toast.makeText(getApplicationContext(), "You cannot have more than 100 coffees", Toast.LENGTH_SHORT);
+            toast.show();
         }
         display(numberOfCoffees);
     }
@@ -73,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
         numberOfCoffees = numberOfCoffees - 1;
         if(numberOfCoffees<1){
             numberOfCoffees = 1;
+
+            Toast toast = Toast.makeText(getApplicationContext(), "You cannot have less than 1 coffee", Toast.LENGTH_SHORT);
+            toast.show();
         }
         display(numberOfCoffees);
     }
