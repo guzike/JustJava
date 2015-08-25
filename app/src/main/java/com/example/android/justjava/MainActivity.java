@@ -27,17 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void CheckBoxAct(View view) {
-        CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox_cream);
-        hasWhippedCream = checkBox1.isChecked();
-    }
+
 
     /**
      * This method is called when the order button is clicked.w
      */
     public void submitOrder(View view) {
         int price = calculatePrice();
-
+        CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox_cream);
+        hasWhippedCream = checkBox1.isChecked();
         displayMessage(createOrderSummary(price, hasWhippedCream));
     }
 
