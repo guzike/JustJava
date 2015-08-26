@@ -1,6 +1,7 @@
 package com.example.android.justjava;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -56,14 +57,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Create the text message with a string
         Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.setAction(Intent.ACTION_SENDTO);
+        sendIntent.setData(Uri.parse("mailto:"));
         sendIntent.putExtra(Intent.EXTRA_SUBJECT, "JustJava order for " + name);
         sendIntent.putExtra(Intent.EXTRA_TEXT, createOrderSummary(price, hasWhippedCream, hasChocolate, name));
-        sendIntent.setType("text/plain");
 
         // Verify that the intent will resolve to an activity
         if (sendIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(sendIntent);
+        } else {
+            Toast toast = Toast.makeText(this, "no app", Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 
@@ -102,14 +106,6 @@ public class MainActivity extends AppCompatActivity {
         TextView quantityTextView = (TextView) findViewById(
                 R.id.quantity_text_view);
         quantityTextView.setText("" + number);
-    }
-
-    /**
-     * This method displays the given text on the screen.
-     */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
     }
 
     private int calculatePrice(){
