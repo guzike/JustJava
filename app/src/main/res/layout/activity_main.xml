@@ -17,14 +17,15 @@
             android:id="@+id/name_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
-            android:inputType="textCapWords"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:hint="@string/name_hint"
+            android:inputType="textCapWords" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TOPPINGS" />
+            android:text="@string/toppings"
+            android:textAllCaps="true" />
 
 
         <CheckBox
@@ -33,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:paddingLeft="24dp"
-            android:text="Whipped cream"
+            android:text="@string/cream"
             android:textSize="16sp" />
 
         <CheckBox
@@ -42,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:paddingLeft="24dp"
-            android:text="Chocolate"
+            android:text="@string/chocolate"
             android:textSize="16sp" />
 
 
@@ -50,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Quantity"
+            android:text="@string/quantity_cap"
             android:textAllCaps="true" />
 
         <LinearLayout
@@ -85,11 +86,12 @@
         </LinearLayout>
 
         <Button
-            android:layout_width="90dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:onClick="submitOrder"
-            android:text="Order"
+            android:padding="20dp"
+            android:text="@string/sb_order"
             android:textAllCaps="true"
             android:textSize="16sp" />
 

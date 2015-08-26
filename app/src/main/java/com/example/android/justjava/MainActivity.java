@@ -19,24 +19,18 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     int numberOfCoffees = 1;
-
     boolean hasWhippedCream = false;
     boolean hasChocolate = false;
-
     String name = "";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView numberOfCoffeesText = (TextView) findViewById(R.id.quantity_text_view);
-        numberOfCoffeesText.setText(numberOfCoffees+"");
+        numberOfCoffeesText.setText(numberOfCoffees + "");
 
     }
-
-
 
     /**
      * This method is called when the order button is clicked.w
@@ -59,14 +53,14 @@ public class MainActivity extends AppCompatActivity {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SENDTO);
         sendIntent.setData(Uri.parse("mailto:"));
-        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "JustJava order for " + name);
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.subject) + name);
         sendIntent.putExtra(Intent.EXTRA_TEXT, createOrderSummary(price, hasWhippedCream, hasChocolate, name));
 
         // Verify that the intent will resolve to an activity
         if (sendIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(sendIntent);
         } else {
-            Toast toast = Toast.makeText(this, "no app", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, getString(R.string.no_app), Toast.LENGTH_SHORT);
             toast.show();
         }
     }
@@ -76,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public void increment(View view) {
         numberOfCoffees = numberOfCoffees + 1;
-        if(numberOfCoffees>100){
+        if (numberOfCoffees > 100) {
             numberOfCoffees = 100;
 
-            Toast toast = Toast.makeText(this, "You cannot have more than 100 coffees", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, getString(R.string.coffees100), Toast.LENGTH_SHORT);
             toast.show();
         }
         display(numberOfCoffees);
@@ -90,10 +84,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public void decrement(View view) {
         numberOfCoffees = numberOfCoffees - 1;
-        if(numberOfCoffees<1){
+        if (numberOfCoffees < 1) {
             numberOfCoffees = 1;
 
-            Toast toast = Toast.makeText(this, "You cannot have less than 1 coffee", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, getString(R.string.coffee1), Toast.LENGTH_SHORT);
             toast.show();
         }
         display(numberOfCoffees);
@@ -108,26 +102,26 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + number);
     }
 
-    private int calculatePrice(){
+    private int calculatePrice() {
 
-        int totalPrice = numberOfCoffees*5;
+        int totalPrice = numberOfCoffees * 5;
 
-        if(hasWhippedCream){
+        if (hasWhippedCream) {
             totalPrice += numberOfCoffees;
         }
 
-        if(hasChocolate){
-            totalPrice += numberOfCoffees*2;
+        if (hasChocolate) {
+            totalPrice += numberOfCoffees * 2;
         }
         return totalPrice;
     }
 
-    private String createOrderSummary(int price, boolean hasWhippedCream, boolean hasChocolate, String name){
-        return "Name: " + name +
-                "\nAdd whipped cream? " + hasWhippedCream +
-                "\nAdd chocolate? " + hasChocolate +
-                "\nQuantity: " + numberOfCoffees +
-                "\nTotal: " + NumberFormat.getCurrencyInstance().format(price) +
-                "\nThank you!";
+    private String createOrderSummary(int price, boolean hasWhippedCream, boolean hasChocolate, String name) {
+        return getString(R.string.name) + name +
+                getString(R.string.add_cream) + hasWhippedCream +
+                getString(R.string.add_chocolate) + hasChocolate +
+                getString(R.string.quantity) + numberOfCoffees +
+                getString(R.string.total) + NumberFormat.getCurrencyInstance().format(price) +
+                getString(R.string.thank_you);
     }
 }

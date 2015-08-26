@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Тільки Java</string>
+    <string name="action_settings">Налаштування</string>
+    <string name="subject">"JustJava заказ для "</string>
+    <string name="coffees100">"Не можна заказати більше 100 кав"</string>
+    <string name="coffee1">"Не можна заказати менше ніж 1 каву"</string>
+    <string name="name">"Ім'я: "</string>
+    <string name="name_hint">"Введіть своє ім'я"</string>
+    <string name="add_cream">"\nДодати збиті вершки? "</string>
+    <string name="add_chocolate">"\nДодати шоколад? "</string>
+    <string name="quantity">"\nКількість: "</string>
+    <string name="total">"\nУсього: "</string>
+    <string name="thank_you">"\nДякуємо!"</string>
+    <string name="no_app">"Немає додатку"</string>
+    <string name="toppings">"Топпінги"</string>
+    <string name="cream">"Збиті вершки"</string>
+    <string name="chocolate">"Шоколад"</string>
+    <string name="quantity_cap">"Кількість"</string>
+    <string name="sb_order">"Заказати"</string>
+</resources>

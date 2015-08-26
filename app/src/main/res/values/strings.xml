@@ -1,6 +1,20 @@
 <resources>
-    <string name="app_name">Just Java</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">"Just Java"</string>
+    <string name="action_settings">"Settings"</string>
+    <string name="subject">"JustJava order for "</string>
+    <string name="coffees100">"You cannot have more than 100 coffees"</string>
+    <string name="coffee1">"You cannot have less than 1 coffee"</string>
+    <string name="name">"Name: "</string>
+    <string name="name_hint">"Enter your name"</string>
+    <string name="add_cream">"\nAdd whipped cream? "</string>
+    <string name="add_chocolate">"\nAdd chocolate? "</string>
+    <string name="quantity">"\nQuantity: "</string>
+    <string name="total">"\nTotal: "</string>
+    <string name="thank_you">"\nThank you!"</string>
+    <string name="no_app">"No App"</string>
+    <string name="toppings">"Toppings"</string>
+    <string name="cream">"Whipped cream"</string>
+    <string name="chocolate">"Chocolate"</string>
+    <string name="quantity_cap">"Quantity"</string>
+    <string name="sb_order">"Order"</string>
 </resources>
